@@ -94,7 +94,7 @@ class UserController extends Controller
                 
               $em->flush();
               $successMessage = $this->get('translator')->trans('El Usuario se creo satisactoriamente.');
-                $this->addFlash('mensaje', $successMessage);
+                $this->addFlash('mensaje', $successMessage); 
               return $this->redirectToRoute('oio_user_edit', array('id' => $user->getId()));
             }       
             return $this->render('oioUserBundle:User:edit.html.twig', array('user'=> $user,'form'=>$form->createView()));
