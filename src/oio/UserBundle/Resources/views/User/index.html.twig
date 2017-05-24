@@ -1,0 +1,51 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+
+    {{ parent() }}
+{{ include('oioUserBundle:User:messages/success.html.twig') }}
+    <div class="container">
+    
+    <h2>Users</h2>
+    Total Usuarios: {{ pagination.getTotalItemCount }}
+<table class="table">
+    <tr>
+        
+        <th>{{ knp_pagination_sortable(pagination,'Username','u.username') }}</th>
+        <th>{{ knp_pagination_sortable(pagination,'Firstname','u.firstname') }}</th>
+        <th>{{ knp_pagination_sortable(pagination,'Lastname','u.lastname') }}</th>
+        <th>{{ knp_pagination_sortable(pagination,'Email','u.email') }}</th> 
+        <th>{{ knp_pagination_sortable(pagination,'Role','u.role') }}</th>
+        <th>{{ knp_pagination_sortable(pagination,'Created','u.createdAt') }}</th>
+         <th>{{ knp_pagination_sortable(pagination,'Updated','u.updatedAt') }}</th>
+        <th>Actions</th>
+      
+       </tr>    
+       {% for user in pagination %}
+           <tr>
+               <td>{{user.Username}}</td>
+               <td>{{user.Lastname}}</td>
+               <td>{{user.Firstname}}</td>
+               <td>{{user.Email}}</td>
+               <td>{{user.Role}}</td>
+               <td>{{user.CreatedAt|date('d-m-y H:i')}}</td>
+               <td>{{user.UpdatedAt|date('d-m-y H:i')}}</td>
+               <td>
+                   
+                   
+                   <a href="#" class="btn btn-default btn info">Ver</a>
+                   <a href="{{ path('oio_user_edit',{id:user.id})}}"class="btn btn-primary btn info">Editar</a>
+                   <a href="#"class="btn btn-danger btn info">Borrar</a> 
+               </td>
+              
+               
+              
+          
+           
+           </tr>
+           
+           {%endfor%}
+</table> 
+ <div class="navigation">
+     {{ knp_pagination_render(pagination) }}
+</div>
+{% endblock %}

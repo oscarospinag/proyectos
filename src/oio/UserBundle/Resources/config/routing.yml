@@ -1,0 +1,51 @@
+oio_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: oioUserBundle:Default:index }
+    
+oio_user_index:
+    path:     /user/index
+    defaults: { _controller: oioUserBundle:User:index }
+    
+oio_user_create:
+    path:     /user/create
+    defaults: { _controller: oioUserBundle:User:create }
+    methods:    POST
+    
+oio_user_add:
+    path:     /user/add
+    defaults: { _controller: oioUserBundle:User:add }
+    
+    
+oio_user_edit:
+    path:     /user/edit/{id}
+    defaults: { _controller: oioUserBundle:User:edit }
+
+oio_user_update:
+    path:     /user/update/{id}
+    defaults: { _controller: oioUserBundle:User:update}
+    methods: [POST,PUT]
+
+oio_user_delete:
+    path:     /user/delete/{id}
+    defaults: { _controller: oioUserBundle:User:delete }
+        
+        
+    
+oio_user_view:
+    path:     /user/view/{nombre}
+    defaults: { _controller: oioUserBundle:User:view }
+    
+    
+    
+oio_user_views:
+    path:     /user/views/{id}
+    defaults: { _controller: oioUserBundle:User:views }
+    
+        
+oio_user_redirect_add:
+    path:     /user/create
+    defaults:  
+        _controller: oioUserBundle:User:add
+        path: /user/add
+        permanent: true
+    

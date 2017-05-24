@@ -1,0 +1,4 @@
+services:
+#    oio_user.example:
+#        class: oio\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
